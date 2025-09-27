@@ -39,13 +39,13 @@ public class UpdateBookServlet extends HttpServlet {
 
         try {
             if (req.getParameter("updateFormSubmitted") != null) {
-                String bName = req.getParameter(BooksDBConstants.COLUMN_NAME);
-                String bCode = req.getParameter(BooksDBConstants.COLUMN_BARCODE);
-                String bAuthor = req.getParameter(BooksDBConstants.COLUMN_AUTHOR);
-                double bPrice = Double.parseDouble(req.getParameter(BooksDBConstants.COLUMN_PRICE));
+                String bname = req.getParameter(BooksDBConstants.COLUMN_NAME);
+                String bcode = req.getParameter(BooksDBConstants.COLUMN_BARCODE);
+                String bauthor = req.getParameter(BooksDBConstants.COLUMN_AUTHOR);
+                double bprice = Double.parseDouble(req.getParameter(BooksDBConstants.COLUMN_PRICE));
                 int bQty = Integer.parseInt(req.getParameter(BooksDBConstants.COLUMN_QUANTITY));
 
-                Book book = new Book(bCode, bName, bAuthor, bPrice, bQty);
+                Book book = new Book(bcode, bname, bauthor, bprice, bQty);
                 String message = bookService.updateBook(book);
                 if (ResponseCode.SUCCESS.name().equalsIgnoreCase(message)) {
                     pw.println(
